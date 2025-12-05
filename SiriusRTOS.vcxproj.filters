@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ARCH">
+      <UniqueIdentifier>{b8262312-6b28-45f7-bc88-e2129c6a7310}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="APP">
+      <UniqueIdentifier>{29bf1535-81f3-4445-b1b2-bf25e01ba0bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STD">
+      <UniqueIdentifier>{e2353a14-03e5-48b8-8219-575494b94e68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OS">
+      <UniqueIdentifier>{1cdba5ce-54be-4b66-a470-bfabffd1ae82}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ARCH\WIN32\AR_API.h">
+      <Filter>ARCH</Filter>
+    </ClInclude>
+    <ClInclude Include="ARCH\WIN32\AR_Types.h">
+      <Filter>ARCH</Filter>
+    </ClInclude>
+    <ClInclude Include="ARCH\WIN32\AR_WinIntf.h">
+      <Filter>ARCH</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>APP</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_FixMem.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_Handle.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_Memory.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_PQueue.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_API.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_BSTree.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_CLIB.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_DevMan.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_Endian.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="STD\ST_Errors.h">
+      <Filter>STD</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Task.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Timer.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_API.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Core.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_CountSem.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Event.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Flags.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Mailbox.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Mutex.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_PtrQueue.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Queue.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Semaphore.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_SharedMem.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+    <ClInclude Include="OS\OS_Stream.h">
+      <Filter>OS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ARCH\WIN32\AR_WIN32.c">
+      <Filter>ARCH</Filter>
+    </ClCompile>
+    <ClCompile Include="ARCH\WIN32\AR_WinIntf.c">
+      <Filter>ARCH</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.c">
+      <Filter>APP</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_Handle.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_Init.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_Memory.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_PQueue.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_BSTree.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_CLIB.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_DevMan.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_Endian.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_Errors.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="STD\ST_FixMem.c">
+      <Filter>STD</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Task.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Timer.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Core.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_CountSem.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Event.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Flags.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Mailbox.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Mutex.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_PtrQueue.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Queue.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Semaphore.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_SharedMem.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+    <ClCompile Include="OS\OS_Stream.c">
+      <Filter>OS</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

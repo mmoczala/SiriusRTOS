@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-2" />
+<meta http-equiv="content-language" content="en" />
+<meta name="description" content="SpaceShadow - The software provider for embedded and real-time applications" />
+<meta name="keywords" content="SpaceShadow, Embedded, Embedded Software, RTOS, Real-Time, Real Time, Real-Time Operating System, Operating System, Embedded Systems, Kernel, Mariusz Moczala, Mariusz Moczała" />
+<meta name="Robots" content="Index, Follow" />
+<meta name="revisit-after" content="30 days" />
+<meta name="page-topic" content="SpaceShadow" />
+<link href="style.css" media="all" rel="stylesheet" />
+<title>SpaceShadow - Sirius RTOS</title>
+</head>
+<body>
+
+<div id="page_bg">
+<div id="page_header">
+<img src="banner.png" width="1000" height="340" usemap="#menu-map">
+<map name="menu-map">
+    <area shape="rect" coords="170,25,330,80" href="index.html" alt="SpaceShadow">
+    <area shape="rect" coords="60,115,200,160" href="index.html" alt="Home">
+    <area shape="rect" coords="210,115,350,160" href="products.html" alt="Products">
+    <area shape="rect" coords="360,115,500,160" href="doc.html" alt="Documentation">
+    <area shape="rect" coords="510,115,650,160" href="pricing.html" alt="Pricing">
+    <area shape="rect" coords="660,115,800,160" href="customers.html" alt="Pricing">
+    <area shape="rect" coords="810,115,950,160" href="about.html" alt="About">
+</map>
+
+</div>
+<div id="page_content">
+
+<!-- PAGE CONTENT -->
+
+<script type="text/javascript" src="menu.js"></script>
+
+<div class="menu">
+    <div class="page_desc">SpaceShadow products</div>
+    <ul>
+        <li><a href="#" onclick="ProductMenu.ShowPage(0); return false;">Sirius RTOS</a></li>
+    </ul>
+</div>
+
+<div class="page">
+    <div class="MenuPage">
+
+        <div class="page_img" style="background:url('img/rtos.jpg')"></div>
+        <div class="page_title">The Sirius RTOS</div>
+        <hr />
+
+        <div class="page_txt">
+            <p>Sirius RTOS is a high-performance, portable, and preemptive real-time operating system. Its deterministic and reliable nature makes it suitable for a broad range of embedded applications across the medical, telecommunications, robotics, automotive, and aerospace industries.</p>
+        </div>
+
+        <div class="page_hdr">RTOS Features</div>
+        <div class="page_txt">
+            <ul>
+                <li>Full source code available</li>
+                <li>Online documentation</li>
+                <li>Priority inversion avoidance via priority inheritance</li>
+                <li>Deadlock detection mechanism for mutexes and semaphores</li>
+                <li>Critical section abandon control and auto-release feature</li>
+                <li>Dynamic priority changes</li>
+                <li>Per-task configurable CPU time quanta (variable time slicing)</li>
+                <li>Wait for multiple objects and timeout support</li>
+                <li>Independent, priority-ordered queues for waiting tasks</li>
+                <li>Power saving capabilities</li>
+                <li>High portability (via Hardware Abstraction Layer)</li>
+                <li>High scalability (5KB to 25KB in full configuration)</li>
+                <li>High performance and ANSI C compatibility</li>
+            </ul>
+        </div>
+
+        <div class="page_hdr">Real-time performance</div>
+        <div class="page_txt">
+            <p>Most embedded systems operate under strict real-time constraints. System correctness depends not only on the logical result of computations but also on the time at which those results are delivered. Sirius RTOS is a deterministic system that ensures results within a bounded time, independent of system load or the number of active objects-a critical requirement for real-time application development.</p>
+        </div>
+
+        <div class="page_hdr">Scheduling</div>
+        <div class="page_txt">
+            <p>The Sirius RTOS employs a deterministic, priority-based preemptive scheduler. For tasks of equal priority, it uses Round-Robin scheduling. A key feature is the ability to assign variable CPU time quanta to individual tasks, allowing short execution windows for quick status checks and longer slices for heavy computations. Both priorities and time slices are dynamically adjustable at runtime.</p>
+        </div>
+
+        <div class="page_hdr">Synchronization</div>
+        <div class="page_txt">
+            <p>In a multitasking environment, resource access must be carefully synchronized. Sirius RTOS achieves this through several mechanisms: events and counting semaphores handle inter-process communication and simple notification, while mutexes control critical sections to prevent priority inversion. Additionally, timers support synchronization based on specific time points or intervals.</p>
+        </div>
+
+        <div class="page_hdr">System objects</div>
+        <div class="page_txt">
+            <p>A comprehensive set of system objects is available to manage synchronization, data exchange, and event notification:</p>
+            <ul>
+                <li>Tasks</li>
+                <li>Mutexes</li>
+                <li>Owning Semaphores</li>
+                <li>Counting/Binary Semaphores</li>
+                <li>Events</li>
+                <li>Event Flags</li>
+                <li>Timers</li>
+                <li>Shared memories</li>
+                <li>Queues</li>
+                <li>Pointer Queues</li>
+                <li>Streams</li>
+                <li>Mailboxes</li>
+            </ul>
+        </div>
+
+        <div class="page_hdr">Applications</div>
+        <div class="page_txt">
+            <p>Sirius RTOS is ideal for embedded applications across various sectors, including:</p>
+            <ul>
+                <li><strong>Consumer Electronics:</strong> TV sets, media players, digital recorders.</li>
+                <li><strong>Infrastructure:</strong> Routers, servers, firewalls, and telephone exchanges.</li>
+                <li><strong>Industrial &amp; Automotive:</strong> Robotics, steering systems, ABS, and drive systems.</li>
+                <li><strong>Critical Systems:</strong> Medical equipment and military control systems.</li>
+            </ul>
+        </div>
+
+        <div class="page_hdr">Green technology</div>
+        <div class="page_txt">
+            <p>We design our products for maximum energy efficiency. Sirius RTOS minimizes system overhead and can suspend the processor clock when no tasks are executing, reducing power consumption while maintaining a fast response time for user applications.</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="page_breaker"></div>
+
+<script type="text/javascript">
+    var ProductMenu = new Menu();
+</script>
+
+<!-- END OF PAGE CONTENT -->
+
+</div>
+</div>
+
+<div id="page_footer">
+<div id="page_footer_info">
+Copyright &copy; 2010 by SpaceShadow<br />
+All rights reserved!
+</div>
+</div>
+
+</body>
+</html>
