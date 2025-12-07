@@ -67,14 +67,14 @@ The kernel provides a comprehensive set of objects to manage synchronization and
 
 ## Project Structure
 
-  * **`OS/` (The Kernel Space):**
-      * `OS_API.h`: **Start Here.** The single-include entry point for the application layer.
-      * `OS_Core.c`: Contains the heart of the scheduler logic.
-      * `OS/Primitives`: Implementations of Mutexes, Semaphores, etc.
-  * **`STD/` (Standard Library Replacement):** Custom implementation of memory management (`memcpy`, `malloc`), string manipulation, and helper functions required to maintain LibC independence.
-  * **`ARCH/` (Hardware Abstraction Layer):** Isolates CPU-specific assembly. Includes ports for **ARM7** and the **Win32 Simulator**.
-  * **`TESTS/`:** Unit and integration scenarios used for validation.
-  * **`docs/`:** Complete documentation suite generated in classic MSDN-style HTML.
+  * **[OS/](OS/) (The Kernel Space):**
+      * [OS_API.h](OS/OS_API.h)`: **Start Here.** The single-include entry point for the application layer.
+      * [OS_Core.c](OS/OS_Core.c): Contains the heart of the scheduler logic.
+      * [OS/](OS/)[Primitives]`: Implementations of Mutexes, Semaphores, etc.
+  * **[STD/](STD/) (Standard Library Replacement):** Custom implementation of memory management (`memcpy`, `malloc`), string manipulation, and helper functions required to maintain LibC independence.
+  * **[ARCH/](ARCH/) (Hardware Abstraction Layer):** Isolates CPU-specific assembly. Includes ports for **ARM7** and the **Win32 Simulator**.
+  * **[TESTS/](TESTS/)`:** Integration scenarios used for validation.
+  * **[docs/](https://mmoczala.github.io/SiriusRTOS/index.html)`:** Complete documentation suite generated in classic MSDN-style HTML.
 
 
 ## Quick Start

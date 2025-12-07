@@ -9,7 +9,7 @@
 <meta name="revisit-after" content="30 days" />
 <meta name="page-topic" content="SpaceShadow" />
 <link href="style.css" media="all" rel="stylesheet" />
-<title>About SpaceShadow Products</title>
+<title>INT64 type</title>
 </head>
 <body>
 
@@ -33,64 +33,29 @@
 
 <div class="doc">
 
-<div class="doc_title">About SpaceShadow Products</div>
+<div class="doc_title">INT64 Type</div>
 
-<div class="doc_txt"><p>SpaceShadow provides real-time software for embedded applications.
-Our main goal is to deliver reliable, predictable, deterministic, safe, and efficient products that
-also help reduce power consumption. All products provided by SpaceShadow are designed to
-work on multiple platforms and are decoupled from the hardware-dependent layer. Sirius RTOS (a real-time
-operating system kernel) is available now. The product provides features characteristic
-of modern RTOSs (e.g., priority inversion avoidance, automatic resource release,
-deadlock detection, etc.). It is an ideal solution for embedded system design and development across
-a wide range of business needs.</p></div>
+<div class="doc_hdr">Declaration</div>
+<pre class="doc_code">typedef signed long long <a href="000055.html" title="INT64">INT64</a>;</pre>
 
-<div class="doc_hdr">Documentation</div>
+<div class="doc_hdr">Description</div>
+<div class="doc_txt"><p>The <code>INT64</code> type is an architecture-independent data type designed to represent a 64-bit signed integer. This type is conditionally defined and is available only when 64-bit support is explicitly enabled by setting the <a href="000041.html" title="AR_USE_64_BIT">AR_USE_64_BIT</a> configuration constant to 1.</p></div>
 
-<div class="doc_txt"><p>Complete product documentation is available online. As SpaceShadow improves
-or updates the product, the documentation will be immediately posted in the documentation section
-of the website. Each document is assigned a unique URL address. Once a document is created,
-it will never be moved or removed. Any changes (such as updates or marking a document as obsolete)
-will be noted within the document itself without changing its web address. This allows our customers
-to access current documentation at any time via the Internet. Users can easily find specific
-documents using the navigation tree on the left side of the web page.</p></div>
-
-<div class="doc_hdr">Source file location</div>
-
-<div class="doc_txt"><p>All source files are delivered in separate directories. The user can relocate
-them to other directories to define a custom application structure. All header
-files are included by name (without specifying their path); therefore, header file paths should
-be set at compile time as extra include directories. All product source files begin with a
-specific prefix. This avoids conflicts between the product's naming convention and the one used by
-the customer. To use a product in your application, simply add all product source files to the
-project and include the XX_API.h file (where XX is the product prefix) in each source file where
-product functions are used.</p></div>
-
-<div class="doc_hdr">Product configuration</div>
-
-<div class="doc_txt"><p>Each product can be individually configured and optimized for specific use cases.
-The configuration process is achieved by redefining product-specific constants. All
-constants are assigned a default value. If the user wishes to specify a value other than the default,
-the constant should be redefined with the new value in the global configuration file (Config.h),
-which is shared by all products. These constants are preprocessor definitions, so new values are
-assigned using the C language #define directive.</p></div>
-
-<div class="doc_hdr">Naming convention</div>
-
-<div class="doc_txt"><p>Our products can be used in diverse applications. Well-chosen identifiers
-for functions, types, and constants enable the user to understand the system's purpose, how
-it works, and how to use the source code for a specific application.</p>
-
-<p>The names of all functions and variables begin with a two- or three-letter lowercase prefix that
-identifies the product. The words in the name are separated using medial capitalization (PascalCase),
-rendering "some words" as "SomeWords" (e.g., osWaitForObject, where the 'os' prefix identifies
-the Operating System product).</p>
-
-<p>All basic types like INT32, PVOID, SIZE, etc., are always written in uppercase letters.
-Structure types or function pointers begin with an uppercase 'T', and the rest of the
-name uses medial capitalization (e.g., TTaskProc).</p>
-
-<p>Configuration constants and definitions are always written in uppercase, with a two-letter
-prefix and words separated by underscores (e.g., AR_USE_64_BIT).</p></div>
+<div class="doc_ref"><table>
+<tr><th width="75">Version:</th><td width="500">1.0</td></tr>
+<tr><th>Header file:</th><td>AR_Types.h (include AR_API.h)</td></tr>
+<tr><th>See also:</th><td>
+<a href="000041.html" title="AR_USE_64_BIT">AR_USE_64_BIT</a>,
+<a href="000052.html" title="INT8">INT8</a>,
+<a href="000053.html" title="INT16">INT16</a>,
+<a href="000054.html" title="INT32">INT32</a>,
+<a href="000056.html" title="LONG">LONG</a>,
+<a href="000060.html" title="UINT8">UINT8</a>,
+<a href="000061.html" title="UINT16">UINT16</a>,
+<a href="000062.html" title="UINT32">UINT32</a>,
+<a href="000063.html" title="UINT64">UINT64</a>,
+<a href="000064.html" title="ULONG">ULONG</a>
+</td></tr></table></div>
 
 </div>
 

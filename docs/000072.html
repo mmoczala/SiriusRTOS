@@ -9,7 +9,7 @@
 <meta name="revisit-after" content="30 days" />
 <meta name="page-topic" content="SpaceShadow" />
 <link href="style.css" media="all" rel="stylesheet" />
-<title>About SpaceShadow Products</title>
+<title>Port for Windows (WIN32)</title>
 </head>
 <body>
 
@@ -33,64 +33,29 @@
 
 <div class="doc">
 
-<div class="doc_title">About SpaceShadow Products</div>
+<div class="doc_title">Windows Port (WIN32)</div>
 
-<div class="doc_txt"><p>SpaceShadow provides real-time software for embedded applications.
-Our main goal is to deliver reliable, predictable, deterministic, safe, and efficient products that
-also help reduce power consumption. All products provided by SpaceShadow are designed to
-work on multiple platforms and are decoupled from the hardware-dependent layer. Sirius RTOS (a real-time
-operating system kernel) is available now. The product provides features characteristic
-of modern RTOSs (e.g., priority inversion avoidance, automatic resource release,
-deadlock detection, etc.). It is an ideal solution for embedded system design and development across
-a wide range of business needs.</p></div>
+<div class="doc_txt"><p>This port enables the deployment of <a href="000184.html" title="Sirius RTOS">Sirius RTOS</a> and other products on the WIN32 platform under Microsoft Windows. It was developed to facilitate product testing and application debugging.</p></div>
 
-<div class="doc_hdr">Documentation</div>
+<div class="doc_hdr">Source files</div>
 
-<div class="doc_txt"><p>Complete product documentation is available online. As SpaceShadow improves
-or updates the product, the documentation will be immediately posted in the documentation section
-of the website. Each document is assigned a unique URL address. Once a document is created,
-it will never be moved or removed. Any changes (such as updates or marking a document as obsolete)
-will be noted within the document itself without changing its web address. This allows our customers
-to access current documentation at any time via the Internet. Users can easily find specific
-documents using the navigation tree on the left side of the web page.</p></div>
+<div class="doc_txt"><p>The following table lists the port files associated with this architecture:</p>
 
-<div class="doc_hdr">Source file location</div>
+<p><table> <tr><th>File name</th><th>Extension</th><th>Description</th></tr> <tr><td>AR_API</td><td>H</td><td>Port API File</td></tr> <tr><td>AR_Types</td><td>H</td><td>Type declarations</td></tr> <tr><td>AR_WIN32</td><td>C</td><td>Port source file</td></tr> <tr><td>AR_WinIntf</td><td>C, H</td><td>Windows interface files</td></tr> </table></p></div>
 
-<div class="doc_txt"><p>All source files are delivered in separate directories. The user can relocate
-them to other directories to define a custom application structure. All header
-files are included by name (without specifying their path); therefore, header file paths should
-be set at compile time as extra include directories. All product source files begin with a
-specific prefix. This avoids conflicts between the product's naming convention and the one used by
-the customer. To use a product in your application, simply add all product source files to the
-project and include the XX_API.h file (where XX is the product prefix) in each source file where
-product functions are used.</p></div>
+<div class="doc_hdr">General description</div>
 
-<div class="doc_hdr">Product configuration</div>
+<div class="doc_txt"><p>Each task is instantiated as a Windows thread. Only one task executes at any given time. An additional thread is created during initialization to generate periodic interrupts. Every millisecond (or other specified interval), the currently executing task is interrupted (by suspending its thread). The <a href="000186.html" title="operating system scheduler">operating system scheduler</a> is then invoked to select the next task for execution, after which the corresponding thread is resumed.</p>
 
-<div class="doc_txt"><p>Each product can be individually configured and optimized for specific use cases.
-The configuration process is achieved by redefining product-specific constants. All
-constants are assigned a default value. If the user wishes to specify a value other than the default,
-the constant should be redefined with the new value in the global configuration file (Config.h),
-which is shared by all products. These constants are preprocessor definitions, so new values are
-assigned using the C language #define directive.</p></div>
+<p>The <a href="000018.html" title="arLock">arLock</a> and <a href="000020.html" title="arRestore">arRestore</a> functions manage preemption disabling and re-enabling by utilizing Windows mutexes and event objects for synchronization.</p>
 
-<div class="doc_hdr">Naming convention</div>
+<p>The <a href="000012.html" title="arGetTickCount">arGetTickCount</a> function returns the value obtained from the Windows API function GetTickCount, representing the time in milliseconds since system startup.</p>
 
-<div class="doc_txt"><p>Our products can be used in diverse applications. Well-chosen identifiers
-for functions, types, and constants enable the user to understand the system's purpose, how
-it works, and how to use the source code for a specific application.</p>
+<p>All created threads execute within a single process context. When no tasks are active, the idle task begins execution. It invokes the <a href="000021.html" title="arSavePower">arSavePower</a> function, which suspends execution. The process voluntarily yields the CPU until the preemption thread wakes to execute the <a href="000186.html" title="scheduler">scheduler</a>.</p></div>
 
-<p>The names of all functions and variables begin with a two- or three-letter lowercase prefix that
-identifies the product. The words in the name are separated using medial capitalization (PascalCase),
-rendering "some words" as "SomeWords" (e.g., osWaitForObject, where the 'os' prefix identifies
-the Operating System product).</p>
+<div class="doc_hdr">Additional configuration</div>
 
-<p>All basic types like INT32, PVOID, SIZE, etc., are always written in uppercase letters.
-Structure types or function pointers begin with an uppercase 'T', and the rest of the
-name uses medial capitalization (e.g., TTaskProc).</p>
-
-<p>Configuration constants and definitions are always written in uppercase, with a two-letter
-prefix and words separated by underscores (e.g., AR_USE_64_BIT).</p></div>
+<div class="doc_txt"><p>The AR_WIN32_CTX_SWITCH_INTERVAL constant defines the interval for invoking the <a href="000186.html" title="operating system scheduler">operating system scheduler</a>. This value is specified in milliseconds and defaults to 1. It must be set to 1 or greater.</p></div>
 
 </div>
 

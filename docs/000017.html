@@ -9,7 +9,7 @@
 <meta name="revisit-after" content="30 days" />
 <meta name="page-topic" content="SpaceShadow" />
 <link href="style.css" media="all" rel="stylesheet" />
-<title>About SpaceShadow Products</title>
+<title>arCreateTaskContext function</title>
 </head>
 <body>
 
@@ -33,64 +33,78 @@
 
 <div class="doc">
 
-<div class="doc_title">About SpaceShadow Products</div>
+<div class="doc_title">arCreateTaskContext Function</div>
 
-<div class="doc_txt"><p>SpaceShadow provides real-time software for embedded applications.
-Our main goal is to deliver reliable, predictable, deterministic, safe, and efficient products that
-also help reduce power consumption. All products provided by SpaceShadow are designed to
-work on multiple platforms and are decoupled from the hardware-dependent layer. Sirius RTOS (a real-time
-operating system kernel) is available now. The product provides features characteristic
-of modern RTOSs (e.g., priority inversion avoidance, automatic resource release,
-deadlock detection, etc.). It is an ideal solution for embedded system design and development across
-a wide range of business needs.</p></div>
+<div class="doc_hdr">Declaration</div>
+<pre class="doc_code"><a href="000050.html" title="BOOL">BOOL</a> arCreateTaskContext(
+  struct <a href="000026.html" title="TTaskContext">TTaskContext</a> <a href="000037.html" title="FAR">FAR</a> *TaskContext,
+  <a href="000027.html" title="TTaskStartupProc">TTaskStartupProc</a> TaskStartupProc,
+  <a href="000059.html" title="SIZE">SIZE</a> StackSize
+);</pre>
 
-<div class="doc_hdr">Documentation</div>
+<div class="doc_hdr">Parameters</div>
 
-<div class="doc_txt"><p>Complete product documentation is available online. As SpaceShadow improves
-or updates the product, the documentation will be immediately posted in the documentation section
-of the website. Each document is assigned a unique URL address. Once a document is created,
-it will never be moved or removed. Any changes (such as updates or marking a document as obsolete)
-will be noted within the document itself without changing its web address. This allows our customers
-to access current documentation at any time via the Internet. Users can easily find specific
-documents using the navigation tree on the left side of the web page.</p></div>
+<div class="doc_param">TaskContext</div>
+<div class="doc_param_txt"><p>Pointer to the task context descriptor structure.</p></div>
 
-<div class="doc_hdr">Source file location</div>
+<div class="doc_param">TaskStartupProc</div>
+<div class="doc_param_txt"><p>Pointer to the task startup procedure (entry point), of type <a href="000027.html" title="TTaskStartupProc">TTaskStartupProc</a>.</p></div>
 
-<div class="doc_txt"><p>All source files are delivered in separate directories. The user can relocate
-them to other directories to define a custom application structure. All header
-files are included by name (without specifying their path); therefore, header file paths should
-be set at compile time as extra include directories. All product source files begin with a
-specific prefix. This avoids conflicts between the product's naming convention and the one used by
-the customer. To use a product in your application, simply add all product source files to the
-project and include the XX_API.h file (where XX is the product prefix) in each source file where
-product functions are used.</p></div>
+<div class="doc_param">StackSize</div>
+<div class="doc_param_txt"><p>Size of the task stack in bytes.</p></div>
 
-<div class="doc_hdr">Product configuration</div>
+<div class="doc_hdr">Return Value</div>
+<div class="doc_txt"><p>Returns <a href="000034.html" title="TRUE">TRUE</a> on success or <a href="000032.html" title="FALSE">FALSE</a> on failure.
+Use the <a href="000103.html" title="stGetLastError">stGetLastError</a> function to obtain extended error information.</p></div>
 
-<div class="doc_txt"><p>Each product can be individually configured and optimized for specific use cases.
-The configuration process is achieved by redefining product-specific constants. All
-constants are assigned a default value. If the user wishes to specify a value other than the default,
-the constant should be redefined with the new value in the global configuration file (Config.h),
-which is shared by all products. These constants are preprocessor definitions, so new values are
-assigned using the C language #define directive.</p></div>
+<div class="doc_hdr">Description</div>
+<div class="doc_txt"><p>This function initializes the stack and execution context for a new task.</p>
 
-<div class="doc_hdr">Naming convention</div>
+<p>The first step performed by this function is the allocation of a memory buffer for the stack. The size of this 
+buffer is specified by the <code>StackSize</code> parameter. If the architecture dictates that the task context 
+(CPU registers) is stored on the stack, <code>StackSize</code> must be sufficient to hold both the context dump 
+and the task's runtime data. The task context is managed via the <a href="000026.html" title="TTaskContext">TTaskContext</a> 
+descriptor, which provides all necessary information to resume task execution.</p>
 
-<div class="doc_txt"><p>Our products can be used in diverse applications. Well-chosen identifiers
-for functions, types, and constants enable the user to understand the system's purpose, how
-it works, and how to use the source code for a specific application.</p>
+<p>Typically, the context descriptor holds only the current stack pointer and the base address of the allocated 
+stack memory (required for deallocation). While it is possible to store the entire register set within the 
+descriptor itself, storing context data on the stack is generally recommended to minimize the processing overhead 
+in the <a href="000186.html" title="operating system scheduler">operating system scheduler</a>.</p>
 
-<p>The names of all functions and variables begin with a two- or three-letter lowercase prefix that
-identifies the product. The words in the name are separated using medial capitalization (PascalCase),
-rendering "some words" as "SomeWords" (e.g., osWaitForObject, where the 'os' prefix identifies
-the Operating System product).</p>
+<p>During initialization, the function must set default values for CPU registers. The Instruction Pointer 
+(Program Counter) must be set to the address of the routine specified in <code>TaskStartupProc</code>. 
+Additionally, the interrupt enable flag (preemption flag) must be configured to ensure that task preemption 
+is enabled by default when the task begins execution.</p>
 
-<p>All basic types like INT32, PVOID, SIZE, etc., are always written in uppercase letters.
-Structure types or function pointers begin with an uppercase 'T', and the rest of the
-name uses medial capitalization (e.g., TTaskProc).</p>
+<p>The following steps outline the context creation process for the 80x86 architecture:</p>
 
-<p>Configuration constants and definitions are always written in uppercase, with a two-letter
-prefix and words separated by underscores (e.g., AR_USE_64_BIT).</p></div>
+<p><ul>
+<li>Verify minimal stack size requirements (sufficient to hold a full context dump).</li>
+<li>Allocate memory for the task stack.</li>
+<li>Initialize the FLAGS register (specifically enabling interrupts).</li>
+<li>Set the task entry point (CS:IP registers) to the startup routine.</li>
+<li>Initialize general-purpose registers (AX, CX, DX, BX, SP, BP, SI, DI, DS, ES) to default values.</li>
+<li>Store the initial stack pointer and stack base address in the task context descriptor.</li>
+</ul></p>
+
+<p>Task context resources are released using the <a href="000019.html" title="arReleaseTaskContext">arReleaseTaskContext</a> function.</p></div>
+
+<div class="doc_ref"><table>
+<tr><th width="75">Version:</th><td width="500">1.0</td></tr>
+<tr><th>Header file:</th><td>AR_API.h</td></tr>
+<tr><th>See also:</th><td>
+<a href="000019.html" title="arReleaseTaskContext">arReleaseTaskContext</a>,
+<a href="000050.html" title="BOOL">BOOL</a>,
+<a href="000015.html" title="context switching">context switching</a>,
+<a href="000032.html" title="FALSE">FALSE</a>,
+<a href="000037.html" title="FAR">FAR</a>,
+<a href="000186.html" title="operating system scheduler">operating system scheduler</a>,
+<a href="000059.html" title="SIZE">SIZE</a>,
+<a href="000103.html" title="stGetLastError">stGetLastError</a>,
+<a href="000034.html" title="TRUE">TRUE</a>,
+<a href="000026.html" title="TTaskContext">TTaskContext</a>,
+<a href="000027.html" title="TTaskStartupProc">TTaskStartupProc</a>
+</td></tr></table></div>
 
 </div>
 

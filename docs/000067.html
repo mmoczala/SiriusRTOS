@@ -9,7 +9,7 @@
 <meta name="revisit-after" content="30 days" />
 <meta name="page-topic" content="SpaceShadow" />
 <link href="style.css" media="all" rel="stylesheet" />
-<title>About SpaceShadow Products</title>
+<title>Generic ARM port</title>
 </head>
 <body>
 
@@ -33,66 +33,54 @@
 
 <div class="doc">
 
-<div class="doc_title">About SpaceShadow Products</div>
+<div class="doc_title">Generic ARM port</div>
 
-<div class="doc_txt"><p>SpaceShadow provides real-time software for embedded applications.
-Our main goal is to deliver reliable, predictable, deterministic, safe, and efficient products that
-also help reduce power consumption. All products provided by SpaceShadow are designed to
-work on multiple platforms and are decoupled from the hardware-dependent layer. Sirius RTOS (a real-time
-operating system kernel) is available now. The product provides features characteristic
-of modern RTOSs (e.g., priority inversion avoidance, automatic resource release,
-deadlock detection, etc.). It is an ideal solution for embedded system design and development across
-a wide range of business needs.</p></div>
+<div class="doc_txt"><p>This port serves as a template enabling the porting of <a href="000184.html" title="Sirius RTOS">Sirius RTOS</a> and other products to ARM microprocessors.</p></div>
 
-<div class="doc_hdr">Documentation</div>
+<div class="doc_hdr">Source files</div>
 
-<div class="doc_txt"><p>Complete product documentation is available online. As SpaceShadow improves
-or updates the product, the documentation will be immediately posted in the documentation section
-of the website. Each document is assigned a unique URL address. Once a document is created,
-it will never be moved or removed. Any changes (such as updates or marking a document as obsolete)
-will be noted within the document itself without changing its web address. This allows our customers
-to access current documentation at any time via the Internet. Users can easily find specific
-documents using the navigation tree on the left side of the web page.</p></div>
+<div class="doc_txt"><p>All port files for this architecture are listed in the table below:</p>
 
-<div class="doc_hdr">Source file location</div>
+<p><table> <tr><th>File name</th><th>Extension</th><th>Description</th></tr> <tr><td>AR_API</td><td>H</td><td>Port API File</td></tr> <tr><td>AR_Types</td><td>H</td><td>Type declarations file</td></tr> <tr><td>AR_ARM</td><td>C</td><td>Port source file</td></tr> <tr><td>AR_ARMa</td><td>S</td><td>Port assembly file</td></tr> <tr><td>AR_ARMHooks</td><td>C, H</td><td>CPU-specific functions</td></tr> </table></p></div>
 
-<div class="doc_txt"><p>All source files are delivered in separate directories. The user can relocate
-them to other directories to define a custom application structure. All header
-files are included by name (without specifying their path); therefore, header file paths should
-be set at compile time as extra include directories. All product source files begin with a
-specific prefix. This avoids conflicts between the product's naming convention and the one used by
-the customer. To use a product in your application, simply add all product source files to the
-project and include the XX_API.h file (where XX is the product prefix) in each source file where
-product functions are used.</p></div>
+<div class="doc_hdr">General description</div>
 
-<div class="doc_hdr">Product configuration</div>
+<div class="doc_txt"><p>The internal timer must be configured to generate interrupts for preemption. It is generally configured to provide an interval between 0.1 and 1 millisecond.</p>
 
-<div class="doc_txt"><p>Each product can be individually configured and optimized for specific use cases.
-The configuration process is achieved by redefining product-specific constants. All
-constants are assigned a default value. If the user wishes to specify a value other than the default,
-the constant should be redefined with the new value in the global configuration file (Config.h),
-which is shared by all products. These constants are preprocessor definitions, so new values are
-assigned using the C language #define directive.</p></div>
+<p>A secondary timer should track the number of "ticks" elapsed since startup. This value is returned by the <a href="000012.html" title="arGetTickCount">arGetTickCount</a> function to provide system time.</p>
 
-<div class="doc_hdr">Naming convention</div>
+<p>The <a href="000018.html" title="arLock">arLock</a> and <a href="000020.html" title="arRestore">arRestore</a> functions perform preemption disabling and re-enabling by modifying the standard interrupt (IRQ) enable state.</p>
 
-<div class="doc_txt"><p>Our products can be used in diverse applications. Well-chosen identifiers
-for functions, types, and constants enable the user to understand the system's purpose, how
-it works, and how to use the source code for a specific application.</p>
+<p>The <a href="000023.html" title="arYield">arYield</a> function performs a context switch without utilizing an additional software interrupt.</p>
 
-<p>The names of all functions and variables begin with a two- or three-letter lowercase prefix that
-identifies the product. The words in the name are separated using medial capitalization (PascalCase),
-rendering "some words" as "SomeWords" (e.g., osWaitForObject, where the 'os' prefix identifies
-the Operating System product).</p>
+<p>All tasks execute in Supervisor Mode. When the <a href="000184.html" title="operating system">operating system</a> calls the port-specific <a href="000022.html" title="arSetPreemptiveHandler">arSetPreemptiveHandler</a> function, it does not allocate a new stack or task context for the <a href="000186.html" title="operating system scheduler">operating system scheduler</a>. This is because the scheduler executes in IRQ Mode, which possesses its own distinct stack and register set.</p>
 
-<p>All basic types like INT32, PVOID, SIZE, etc., are always written in uppercase letters.
-Structure types or function pointers begin with an uppercase 'T', and the rest of the
-name uses medial capitalization (e.g., TTaskProc).</p>
+<p>Most ARM processors support switching to an idle mode. The <a href="000021.html" title="arSavePower">arSavePower</a> function is utilized by the <a href="000184.html" title="operating system">operating system</a> to reduce power consumption when no tasks are executing.</p></div>
 
-<p>Configuration constants and definitions are always written in uppercase, with a two-letter
-prefix and words separated by underscores (e.g., AR_USE_64_BIT).</p></div>
+<div class="doc_hdr">Architecture specific code</div>
+
+<div class="doc_txt"><p>To run <a href="000184.html" title="Sirius RTOS">Sirius RTOS</a> and other SpaceShadow products on a specific ARM microprocessor, the following five CPU-specific functions must be implemented:</p>
+
+<p><ul> <li>arARMInitHook</li> <li>arARMDeinitHook</li> <li>arGetTickCountHook</li> <li>arIRQHandlerHook</li> <li>arSavePowerHook</li> </ul></p>
+
+<p>The arARMInitHook function must implement platform initialization and enable the timer. This timer must periodically execute the callback function passed as a parameter to realize preemption.</p>
+
+<p>The arARMDeinitHook function is executed during platform deinitialization. This implementation may be skipped if the feature is not required.</p>
+
+<p>The arGetTickCountHook function must return the total number of clock "ticks" elapsed since system startup. To properly manage system time, the number of clock "ticks" per second must be defined in the <a href="000010.html" title="AR_TICKS_PER_SECOND">AR_TICKS_PER_SECOND</a> constant. Using one-millisecond intervals is recommended.</p>
+
+<p>The arIRQHandlerHook function is executed every time preemption occurs. It is used to acknowledge the interrupt (End of Interrupt).</p>
+
+<p>The arSavePowerHook function is called whenever the CPU is idle (not processing any task). It allows switching the CPU to a power-save mode, which resumes execution upon any interrupt. This is often performed by an architecture-specific instruction (e.g., HLT on i386 or HALT on Motorola 68k). If the processor does not provide a method for halting execution, the body of this function should remain empty.</p></div>
+
+<div class="doc_hdr">Task context</div>
+
+<div class="doc_txt"><p>The task context contains all information required to resume the execution of a preempted task. The table below details the 64-byte task context structure for ARM processors:</p>
+
+<p><table> <tr><th>Offset</th><th>Size</th><th>Description</th></tr> <tr><td>0000</td><td>4</td><td>R15 (PC) register - Task startup procedure</td></tr> <tr><td>0004</td><td>4</td><td>R14 register, original Link Register value</td></tr> <tr><td>0008</td><td>4</td><td>R12 register</td></tr> <tr><td>000C</td><td>4</td><td>R11 register</td></tr> <tr><td>0010</td><td>4</td><td>R10 register</td></tr> <tr><td>0014</td><td>4</td><td>R9 register</td></tr> <tr><td>0018</td><td>4</td><td>R8 register</td></tr> <tr><td>001C</td><td>4</td><td>R7 register</td></tr> <tr><td>0020</td><td>4</td><td>R6 register</td></tr> <tr><td>0024</td><td>4</td><td>R5 register</td></tr> <tr><td>0028</td><td>4</td><td>R4 register</td></tr> <tr><td>002C</td><td>4</td><td>R3 register</td></tr> <tr><td>0030</td><td>4</td><td>R2 register</td></tr> <tr><td>0034</td><td>4</td><td>R1 register</td></tr> <tr><td>0038</td><td>4</td><td>R0 register</td></tr> <tr><td>003C</td><td>4</td><td>CPSR (Flags) register</td></tr> </table></p></div>
 
 </div>
+
 
 <div class="tree">
 
