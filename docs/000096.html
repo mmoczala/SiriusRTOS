@@ -9,7 +9,7 @@
 <meta name="revisit-after" content="30 days" />
 <meta name="page-topic" content="SpaceShadow" />
 <link href="style.css" media="all" rel="stylesheet" />
-<title>API file template</title>
+<title>stLEToCPU32 macro</title>
 </head>
 <body>
 
@@ -33,128 +33,36 @@
 
 <div class="doc">
 
-<div class="doc_title">API File Template</div>
+<div class="doc_title">stLEToCPU32 macro</div>
 
-<div class="doc_txt"><p>The content of the AR_API.h file for 80x86 CPUs is shown below. This file
-should provide the definitions, types, and functions illustrated in the example. When defining
-a new port file, the programmer must perform specific modifications: the value of the
-<a href="000010.html" title="AR_TICKS_PER_SECOND">AR_TICKS_PER_SECOND</a> constant must be defined, and the
-<a href="000026.html" title="TTaskContext">TTaskContext</a> structure must be populated with mandatory fields to enable
-<a href="000015.html" title="context switching">context switching</a>. For further details, please refer to the detailed description
-of the specific definition, type, or function.</p></div>
+<div class="doc_hdr">Declaration</div>
+<pre class="doc_code">#define stLEToCPU32(
+  Value
+)</pre>
 
-<pre class="doc_code">/****************************************************************************
- *
- *  Sirius RTOS
- *  AR_API.h - Architecture API
- *  Version 1.00
- *
- *  Copyright 2010 by SpaceShadow
- *  All rights reserved!
- *
- ***************************************************************************/
+<div class="doc_hdr">Parameters</div>
 
+<div class="doc_param">Value</div>
+<div class="doc_param_txt"><p>The 32-bit value to convert to the CPU's native byte ordering.</p></div>
 
-/***************************************************************************/
-#ifndef AR_API_H
-#define AR_API_H
-/***************************************************************************/
+<div class="doc_hdr">Return value</div>
+<div class="doc_txt"><p>Returns the value converted to the host CPU's endianness.</p></div>
 
+<div class="doc_hdr">Description</div>
+<div class="doc_txt"><p>This macro converts a 32-bit number from Little Endian format into the native format used by the CPU.</p>
 
-/****************************************************************************
- *
- *  Includes
- *
- ***************************************************************************/
+<p>If the host processor operates in Big Endian mode, the macro invokes the <a href="000083.html" title="stSwap32">stSwap32</a> function to reverse the byte order of the specified value. If the processor operates in Little Endian mode, the value remains unmodified.</p>
 
-#include "Config.h"
-#include "AR_Types.h"
+<p>This macro is excluded from compilation if the byte ordering module is disabled by setting the <a href="000079.html" title="ST_USE_ENDIANS">ST_USE_ENDIANS</a> configuration constant to 0.</p></div>
 
-
-/****************************************************************************
- *
- *  Default configuration
- *
- ***************************************************************************/
-
-/* arDeinit function is enabled by default */
-#ifndef <a href="000042.html" title="AR_USE_DEINIT_FUNC">AR_USE_DEINIT_FUNC</a>
-  #define <a href="000042.html" title="AR_USE_DEINIT_FUNC">AR_USE_DEINIT_FUNC</a>            1
-#endif
-
-
-/****************************************************************************
- *
- *  Definitions
- *
- ***************************************************************************/
-
-/* Number of ticks per second for the value returned by <a href="000012.html" title="arGetTickCount">arGetTickCount</a> */
-#define <a href="000010.html" title="AR_TICKS_PER_SECOND">AR_TICKS_PER_SECOND</a>             1000UL
-
-
-/****************************************************************************
- *
- *  Type definitions
- *
- ***************************************************************************/
-
-/* Task context structure */
-struct <a href="000026.html" title="TTaskContext">TTaskContext</a>
-{
-  <a href="000058.html" title="PVOID">PVOID</a> TaskContext;
-  <a href="000058.html" title="PVOID">PVOID</a> StackAddress;
-};
-
-/* Function callbacks */
-typedef void (<a href="000036.html" title="CALLBACK">CALLBACK</a> *<a href="000025.html" title="TPreemptiveProc">TPreemptiveProc</a>)(struct <a href="000026.html" title="TTaskContext">TTaskContext</a>
-  <a href="000037.html" title="FAR">FAR</a> *TaskContext);
-typedef void (<a href="000036.html" title="CALLBACK">CALLBACK</a> *<a href="000027.html" title="TTaskStartupProc">TTaskStartupProc</a>)(void);
-
-
-/****************************************************************************
- *
- *  Functions
- *
- ***************************************************************************/
-
-#ifdef __cplusplus
-  extern "C" {
-#endif
-
-  <a href="000050.html" title="BOOL">BOOL</a> <a href="000045.html" title="arInit">arInit</a>(void);
-
-  #if <a href="000042.html" title="AR_USE_DEINIT_FUNC">AR_USE_DEINIT_FUNC</a>
-    void <a href="000044.html" title="arDeinit">arDeinit</a>(void);
-  #endif
-
-  <a href="000050.html" title="BOOL">BOOL</a> <a href="000018.html" title="arLock">arLock</a>(void);
-  void <a href="000020.html" title="arRestore">arRestore</a>(<a href="000050.html" title="BOOL">BOOL</a> PreviousLockState);
-
-  <a href="000014.html" title="TIME">TIME</a> <a href="000012.html" title="arGetTickCount">arGetTickCount</a>(void);
-
-  #if <a href="000442.html" title="OS_USED">OS_USED</a>
-
-    <a href="000050.html" title="BOOL">BOOL</a> <a href="000022.html" title="arSetPreemptiveHandler">arSetPreemptiveHandler</a>(<a href="000025.html" title="TPreemptiveProc">TPreemptiveProc</a> PreemptiveProc,
-      <a href="000059.html" title="SIZE">SIZE</a> StackSize);
-    void <a href="000023.html" title="arYield">arYield</a>(void);
-
-    <a href="000050.html" title="BOOL">BOOL</a> <a href="000017.html" title="arCreateTaskContext">arCreateTaskContext</a>(struct <a href="000026.html" title="TTaskContext">TTaskContext</a> <a href="000037.html" title="FAR">FAR</a> *TaskContext,
-      <a href="000027.html" title="TTaskStartupProc">TTaskStartupProc</a> TaskStartupProc, <a href="000059.html" title="SIZE">SIZE</a> StackSize);
-    <a href="000050.html" title="BOOL">BOOL</a> <a href="000019.html" title="arReleaseTaskContext">arReleaseTaskContext</a>(struct <a href="000026.html" title="TTaskContext">TTaskContext</a> <a href="000037.html" title="FAR">FAR</a> *TaskContext);
-
-    void <a href="000021.html" title="arSavePower">arSavePower</a>(void);
-
-  #endif
-
-#ifdef __cplusplus
-  };
-#endif
-
-
-/***************************************************************************/
-#endif /* AR_API_H */
-/***************************************************************************/</pre>
+<div class="doc_ref"><table>
+<tr><th width="75">Version:</th><td width="500">1.0</td></tr>
+<tr><th>Header file:</th><td>ST_Endian.h (include ST_API.h)</td></tr>
+<tr><th>See also:</th><td>
+<a href="000074.html" title="byte ordering">byte ordering</a>,
+<a href="000079.html" title="ST_USE_ENDIANS">ST_USE_ENDIANS</a>,
+<a href="000083.html" title="stSwap32">stSwap32</a>
+</td></tr></table></div>
 
 </div>
 

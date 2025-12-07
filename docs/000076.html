@@ -39,15 +39,15 @@
 
 <pre class="doc_code">void Add(void *OpLE, void *OpBE)
 {
-  <a href="000062.html" title="UINT32">UINT32</a> ValA, ValB;
+  <a href="000062.html" title="UINT32">UINT32</a> ValA, ValB;
 
-  /* Convert values in to CPU specific format */
-  ValA = <a href="000096.html" title="stLEToCPU32">stLEToCPU32</a>(*(<a href="000062.html" title="UINT32">UINT32</a> *) OpLE);
-  ValB = <a href="000087.html" title="stBEToCPU32">stBEToCPU32</a>(*(<a href="000062.html" title="UINT32">UINT32</a> *) OpBE);
+  /* Convert values in to CPU specific format */
+  ValA = <a href="000096.html" title="stLEToCPU32">stLEToCPU32</a>(*(<a href="000062.html" title="UINT32">UINT32</a> *) OpLE);
+  ValB = <a href="000087.html" title="stBEToCPU32">stBEToCPU32</a>(*(<a href="000062.html" title="UINT32">UINT32</a> *) OpBE);
 
-  /* Store in first argument the sum of ValA and ValB variables, */
-  /* using little-endian convention */
-  *(<a href="000062.html" title="UINT32">UINT32</a> *) OpLE = <a href="000093.html" title="stCPUToLE32">stCPUToLE32</a>(ValA + ValB);
+  /* Store in first argument the sum of ValA and ValB variables, */
+  /* using little-endian convention */
+  *(<a href="000062.html" title="UINT32">UINT32</a> *) OpLE = <a href="000093.html" title="stCPUToLE32">stCPUToLE32</a>(ValA + ValB);
 }</pre>
 
 </div>
