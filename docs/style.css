@@ -1,0 +1,345 @@
+/* ============================ */
+/*  PAGE TEMPLATE               */
+/* ============================ */
+
+* html *{
+zoom:100%;
+}
+
+body{
+margin:0;
+background-image:url('img/page_top.jpg');
+background-repeat:repeat-x;
+background-color:#eeeeee;
+}
+
+#page_bg{
+width:1000px;
+margin-left:auto;
+margin-right:auto;
+background-image:url('img/page_bg.jpg');
+background-repeat:repeat-y;
+}
+
+#page_header{
+overflow:hidden;
+}
+
+#page_content{
+margin:0 44px 0 50px;
+padding:10px;
+min-height:500px;
+}
+
+#page_footer{
+background-image:url('img/page_bottom.jpg');
+background-repeat:repeat-x;
+background-color:#eee;
+clear:both;
+}
+
+#page_footer_info{
+width:1000px;
+min-height:94px;
+margin: 0 auto;
+padding:115px 0px 0px 0px;
+background-image:url('img/page_fotter.jpg');
+background-repeat:no-repeat;
+text-align:center;
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:11px;
+color:#0980b3;
+}
+
+
+
+/* ============================ */
+/*  DEFAULT SETTINGS            */
+/* ============================ */
+
+table, td, th{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:12px;
+border:1px solid black;
+border-collapse:collapse;
+padding:5px;
+}
+
+ul{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:12px;
+margin:0 0 0px 0;
+padding:0;
+}
+
+li{
+background:white url("img/list.gif") no-repeat left top;
+list-style-type:none;
+padding-left:22px;
+margin:0 0 0px 0;
+}
+
+a{
+color:#0B94CA;
+font-weight:bold;
+text-decoration:none;
+}
+
+a:hover{
+color:#000099;
+}
+
+hr{
+color:#FFC000;
+background-color:#FFC000;
+border:none;
+height:2px;
+}
+
+
+
+/* ============================ */
+/*  TEXT STYLES                 */
+/* ============================ */
+
+.page_img{
+background:white no-repeat left top;
+width:240px;
+height:320px;
+float:right;
+vertical-align:top;
+}
+
+.page_title{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:22px;
+font-weight:bold;
+margin:0;
+}
+
+.page_hdr{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:14px;
+font-weight:bold;
+margin:10px 0px 0px 0px;
+}
+
+.page_txt p{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:12px;
+text-indent:0px;
+text-align:justify;
+margin:0px 0px 10px 0px;
+}
+
+.page_desc{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:12px;
+text-indent:0px;
+margin:0px 0px 4px 0px;
+}
+
+
+/* ============================ */
+/*  MAIN PAGE STYLES            */
+/* ============================ */
+
+.main_hdr{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:18px;
+font-weight:bold;
+margin:15px 20px;
+}
+
+.main_txt p{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:16px;
+text-indent:0px;
+text-align:justify;
+margin:15px 20px;
+}
+
+.main_img{
+background:white url("img/main.png") no-repeat left top;
+width:768px;
+height:272px;
+margin:50px auto 0 auto;
+padding:0;
+}
+
+
+
+/* ============================ */
+/*  MENU AND PAGE STYLES        */
+/* ============================ */
+
+.menu{
+float:left;
+width:175px;
+height:500px;
+overflow:auto;
+padding-right:5px;
+white-space:nowrap;
+}
+
+.page{
+float:right;
+width:695px;
+min-height:500px;
+background:white url("img/splitter.png") repeat-y left;
+padding-left:7px
+}
+
+.page_breaker{
+clear:both;
+}
+
+
+
+/* ============================ */
+/*  DOC AND TREE STYLES         */
+/* ============================ */
+
+.tree{
+float:left;
+width:225px;
+height:500px;
+overflow:auto;
+padding-right:5px;
+white-space:nowrap;
+}
+
+.doc{
+float:right;
+width:645px;
+min-height:500px;
+background:white url("img/splitter.png") repeat-y left;
+padding-left:7px
+}
+
+.doc_breaker{
+clear:both;
+}
+
+
+
+/* ============================ */
+/*  TREE STYLES                 */
+/* ============================ */
+
+.treeview ul{
+margin:0;
+padding:0;
+}
+
+.treeview li{
+background:white url("img/list.gif") no-repeat left center;
+list-style-type:none;
+padding-left:22px;
+margin-bottom:3px;
+}
+
+.treeview li.submenu{
+background:white url("img/closed.gif") no-repeat left 1px;
+cursor:hand!important;
+cursor:pointer!important;
+}
+
+.treeview li.submenu ul{
+display:none; 
+}
+
+.treeview .submenu ul li{
+cursor:default;
+}
+
+
+
+/* ============================ */
+/*  DOC STYLES                  */
+/* ============================ */
+
+.doc_title{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:22px;
+font-weight:bold;
+margin:0;
+}
+
+.doc_hdr{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:14px;
+font-weight:bold;
+margin:10px 0px 0px 0px;
+}
+
+.doc_sub_hdr{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:12px;
+font-weight:bold;
+margin:10px 0px 0px 0px;
+}
+
+.doc_code{
+border:1px dashed #607080;
+font-family:Courier New;
+font-size:13.5px;
+white-space:pre-wrap;
+background-color:#f0f0f0;
+padding:2px 4px;
+margin:10px 0px;
+}
+
+.doc_code a{
+font-family:Courier New;
+}
+
+.doc_param{
+font-family:Arial, Helvetica, Sans-Serif;
+font-style:italic;
+font-size:12px;
+}
+
+.doc_txt p{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:12px;
+text-indent:0px;
+text-align:justify;
+margin:0px 0px 10px 0px;
+}
+
+.doc_param_txt p{
+font-family:Arial, Helvetica, Sans-Serif;
+font-size:12px;
+text-indent:0px;
+text-align:justify;
+margin:0px 0px 10px 25px;
+}
+
+.doc table{
+border:1px dashed #607080;
+border-collapse:separate;
+border-spacing:0;
+padding:0;
+}
+
+.doc th{
+border:0;
+background-color:#f0f0f0;
+font-weight:bold;
+text-align:center;
+}
+
+.doc td{
+border:0;
+text-align:left;
+}
+
+.doc_ref table{
+width:100%;
+}
+
+.doc_ref th{
+width:100px;
+text-align:right;
+}

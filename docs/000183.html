@@ -1,0 +1,690 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-2" />
+<meta http-equiv="content-language" content="en" />
+<meta name="keywords" content="SpaceShadow - The software provider for embedded and real-time applications" />
+<meta name="description" content="SpaceShadow, Embedded, Embedded Software, RTOS, Real-Time, Real Time, Real-Time Operating System, Operating System, Embedded Systems, Kernel, Mariusz Moczala, Mariusz Moczała" />
+<meta name="Robots" content="Index, Follow" />
+<meta name="revisit-after" content="30 days" />
+<meta name="page-topic" content="SpaceShadow" />
+<link href="style.css" media="all" rel="stylesheet" />
+<title>stInit function</title>
+</head>
+<body>
+
+<div id="page_bg">
+<div id="page_header">
+<img src="banner.png" width="1000" height="340" usemap="#menu-map">
+<map name="menu-map">
+    <area shape="rect" coords="170,25,330,80" href="index.html" alt="SpaceShadow">
+    <area shape="rect" coords="60,115,200,160" href="index.html" alt="Home">
+    <area shape="rect" coords="210,115,350,160" href="products.html" alt="Products">
+    <area shape="rect" coords="360,115,500,160" href="doc.html" alt="Documentation">
+    <area shape="rect" coords="510,115,650,160" href="pricing.html" alt="Pricing">
+    <area shape="rect" coords="660,115,800,160" href="customers.html" alt="Pricing">
+    <area shape="rect" coords="810,115,950,160" href="about.html" alt="About">
+</map>
+
+</div>
+<div id="page_content">
+
+<!-- PAGE CONTENT -->
+
+<div class="doc">
+
+<div class="doc_title">stInit Function</div>
+
+<div class="doc_hdr">Declaration:</div>
+<pre class="doc_code"><a href="000050.html" title="BOOL">BOOL</a> stInit(void);</pre>
+
+<div class="doc_hdr">Return value:</div>
+<div class="doc_txt"><p><a href="000034.html" title="TRUE">TRUE</a> on success or <a href="000032.html" title="FALSE">FALSE</a> on failure.
+Use the <a href="000426.html" title="osGetLastError">osGetLastError</a> function to obtain extended error information.</p></div>
+
+<div class="doc_hdr">Description:</div>
+<div class="doc_txt"><p>This function is used to initialize the <a href="000073.html" title="standard library">standard library</a>. It should be
+called once before utilizing any functions from the <a href="000073.html" title="standard library">standard library</a>. This function does the following:</p>
+
+<p><ul>
+<li>Sets the error code of the last failed operation to <code>ERR_NO_ERROR</code>.</li>
+<li>Initializes the handle management module.</li>
+<li>Initializes memory management for the alternative C library.</li>
+</ul></p></div>
+
+
+<div class="doc_ref"><table>
+<tr><th width="75">Version:</th><td width="500">1.0</td></tr>
+<tr><th>Header file:</th><td>ST_API.h</td></tr>
+<tr><th>See also:</th><td>
+<a href="000050.html" title="BOOL">BOOL</a>,
+<a href="000099.html" title="ERR_NO_ERROR">ERR_NO_ERROR</a>,
+<a href="000032.html" title="FALSE">FALSE</a>,
+<a href="000426.html" title="osGetLastError">osGetLastError</a>,
+<a href="000034.html" title="TRUE">TRUE</a>
+</td></tr></table></div>
+
+</div>
+
+<div class="tree">
+
+<script type="text/javascript" src="simpletreemenu.js">
+/***********************************************
+* Simple Tree Menu- Š Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+
+<div class="page_desc">SpaceShadow documentation</div>
+<ul id="treemenu1" class="treeview">
+<li><a href="000001.html" title="About SpaceShadow products">About SpaceShadow products</a></li>
+<li><a href="000002.html" title="Architecture dependencies">Architecture dependencies</a><ul>
+<li><a href="000003.html" title="Creating a port files">Creating a port files</a><ul>
+<li><a href="000004.html" title="API File Template">API File Template</a></li>
+<li><a href="000005.html" title="Types File Template">Types File Template</a></li>
+<li><a href="000006.html" title="Time management">Time management</a><ul>
+<li><a href="000007.html" title="Constants">Constants</a><ul>
+<li><a href="000008.html" title="AR_TIME_IGNORE">AR_TIME_IGNORE</a></li>
+<li><a href="000009.html" title="AR_TIME_INFINITE">AR_TIME_INFINITE</a></li>
+<li><a href="000010.html" title="AR_TICKS_PER_SECOND">AR_TICKS_PER_SECOND</a></li>
+</ul></li>
+<li><a href="000011.html" title="Functions">Functions</a><ul>
+<li><a href="000012.html" title="arGetTickCount">arGetTickCount</a></li>
+</ul></li>
+<li><a href="000013.html" title="Types">Types</a><ul>
+<li><a href="000014.html" title="TIME">TIME</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000015.html" title="Context switching">Context switching</a><ul>
+<li><a href="000016.html" title="Functions">Functions</a><ul>
+<li><a href="000017.html" title="arCreateTaskContext">arCreateTaskContext</a></li>
+<li><a href="000018.html" title="arLock">arLock</a></li>
+<li><a href="000019.html" title="arReleaseTaskContext">arReleaseTaskContext</a></li>
+<li><a href="000020.html" title="arRestore">arRestore</a></li>
+<li><a href="000021.html" title="arSavePower">arSavePower</a></li>
+<li><a href="000022.html" title="arSetPreemptiveHandler">arSetPreemptiveHandler</a></li>
+<li><a href="000023.html" title="arYield">arYield</a></li>
+</ul></li>
+<li><a href="000024.html" title="Types">Types</a><ul>
+<li><a href="000025.html" title="TPreemptiveProc">TPreemptiveProc</a></li>
+<li><a href="000026.html" title="TTaskContext">TTaskContext</a></li>
+<li><a href="000027.html" title="TTaskStartupProc">TTaskStartupProc</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000028.html" title="Constants">Constants</a><ul>
+<li><a href="000029.html" title="AR_LENDIAN_CPU">AR_LENDIAN_CPU</a></li>
+<li><a href="000030.html" title="AR_MEMORY_ALIGNMENT">AR_MEMORY_ALIGNMENT</a></li>
+<li><a href="000031.html" title="AR_UNDEFINED_INDEX">AR_UNDEFINED_INDEX</a></li>
+<li><a href="000032.html" title="FALSE">FALSE</a></li>
+<li><a href="000033.html" title="NULL">NULL</a></li>
+<li><a href="000034.html" title="TRUE">TRUE</a></li>
+</ul></li>
+<li><a href="000035.html" title="Modifiers">Modifiers</a><ul>
+<li><a href="000036.html" title="CALLBACK">CALLBACK</a></li>
+<li><a href="000037.html" title="FAR">FAR</a></li>
+<li><a href="000038.html" title="INLINE">INLINE</a></li>
+<li><a href="000039.html" title="NEAR">NEAR</a></li>
+</ul></li>
+<li><a href="000040.html" title="Configuration">Configuration</a><ul>
+<li><a href="000041.html" title="AR_USE_64_BIT">AR_USE_64_BIT</a></li>
+<li><a href="000042.html" title="AR_USE_DEINIT_FUNC">AR_USE_DEINIT_FUNC</a></li>
+</ul></li>
+<li><a href="000043.html" title="Functions">Functions</a><ul>
+<li><a href="000044.html" title="arDeinit">arDeinit</a></li>
+<li><a href="000045.html" title="arInit">arInit</a></li>
+</ul></li>
+<li><a href="000046.html" title="Macros">Macros</a><ul>
+<li><a href="000047.html" title="AR_MEMORY_ALIGN_UP">AR_MEMORY_ALIGN_UP</a></li>
+<li><a href="000048.html" title="AR_UNUSED_PARAM">AR_UNUSED_PARAM</a></li>
+</ul></li>
+<li><a href="000049.html" title="Types">Types</a><ul>
+<li><a href="000050.html" title="BOOL">BOOL</a></li>
+<li><a href="000051.html" title="INDEX">INDEX</a></li>
+<li><a href="000052.html" title="INT8">INT8</a></li>
+<li><a href="000053.html" title="INT16">INT16</a></li>
+<li><a href="000054.html" title="INT32">INT32</a></li>
+<li><a href="000055.html" title="INT64">INT64</a></li>
+<li><a href="000056.html" title="LONG">LONG</a></li>
+<li><a href="000057.html" title="PSTR">PSTR</a></li>
+<li><a href="000058.html" title="PVOID">PVOID</a></li>
+<li><a href="000059.html" title="SIZE">SIZE</a></li>
+<li><a href="000060.html" title="UINT8">UINT8</a></li>
+<li><a href="000061.html" title="UINT16">UINT16</a></li>
+<li><a href="000062.html" title="UINT32">UINT32</a></li>
+<li><a href="000063.html" title="UINT64">UINT64</a></li>
+<li><a href="000064.html" title="ULONG">ULONG</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000065.html" title="Ports">Ports</a><ul>
+<li><a href="000066.html" title="ARM">ARM</a><ul>
+<li><a href="000067.html" title="Generic ARM">Generic ARM</a></li>
+<li><a href="000068.html" title="AT91SAM7S">AT91SAM7S</a></li>
+</ul></li>
+<li><a href="000069.html" title="80x86">80x86</a><ul>
+<li><a href="000070.html" title="80x86 Real Mode">80x86 Real Mode</a></li>
+</ul></li>
+<li><a href="000071.html" title="Virtual Devices">Virtual Devices</a><ul>
+<li><a href="000072.html" title="WIN32">WIN32</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="000073.html" title="Standard Library">Standard Library</a><ul>
+<li><a href="000074.html" title="Byte ordering">Byte ordering</a><ul>
+<li><a href="000075.html" title="Examples">Examples</a><ul>
+<li><a href="000076.html" title="Using byte ordering">Using byte ordering</a></li>
+</ul></li>
+<li><a href="000077.html" title="Configuration">Configuration</a><ul>
+<li><a href="000078.html" title="ST_IS_LENDIAN_CPU_FUNC">ST_IS_LENDIAN_CPU_FUNC</a></li>
+<li><a href="000079.html" title="ST_USE_ENDIANS">ST_USE_ENDIANS</a></li>
+</ul></li>
+<li><a href="000080.html" title="Functions">Functions</a><ul>
+<li><a href="000081.html" title="stIsLEndianCPU">stIsLEndianCPU</a></li>
+<li><a href="000082.html" title="stSwap16">stSwap16</a></li>
+<li><a href="000083.html" title="stSwap32">stSwap32</a></li>
+<li><a href="000084.html" title="stSwap64">stSwap64</a></li>
+</ul></li>
+<li><a href="000085.html" title="Macros">Macros</a><ul>
+<li><a href="000086.html" title="stBEToCPU16">stBEToCPU16</a></li>
+<li><a href="000087.html" title="stBEToCPU32">stBEToCPU32</a></li>
+<li><a href="000088.html" title="stBEToCPU64">stBEToCPU64</a></li>
+<li><a href="000089.html" title="stCPUToBE16">stCPUToBE16</a></li>
+<li><a href="000090.html" title="stCPUToBE32">stCPUToBE32</a></li>
+<li><a href="000091.html" title="stCPUToBE64">stCPUToBE64</a></li>
+<li><a href="000092.html" title="stCPUToLE16">stCPUToLE16</a></li>
+<li><a href="000093.html" title="stCPUToLE32">stCPUToLE32</a></li>
+<li><a href="000094.html" title="stCPUToLE64">stCPUToLE64</a></li>
+<li><a href="000095.html" title="stLEToCPU16">stLEToCPU16</a></li>
+<li><a href="000096.html" title="stLEToCPU32">stLEToCPU32</a></li>
+<li><a href="000097.html" title="stLEToCPU64">stLEToCPU64</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000098.html" title="Error codes management">Error codes management</a><ul>
+<li><a href="000099.html" title="Error codes list">Error codes list</a></li>
+<li><a href="000100.html" title="Examples">Examples</a><ul>
+<li><a href="000101.html" title="Managing error codes">Managing error codes</a></li>
+</ul></li>
+<li><a href="000102.html" title="Functions">Functions</a><ul>
+<li><a href="000103.html" title="stGetLastError">stGetLastError</a></li>
+<li><a href="000104.html" title="stSetLastError">stSetLastError</a></li>
+</ul></li>
+<li><a href="000105.html" title="Types">Types</a><ul>
+<li><a href="000106.html" title="ERROR">ERROR</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000107.html" title="Handle management">Handle management</a><ul>
+<li><a href="000108.html" title="Configuration">Configuration</a><ul>
+<li><a href="000109.html" title="ST_HANDLE_CHECK_FUNC">ST_HANDLE_CHECK_FUNC</a></li>
+<li><a href="000110.html" title="ST_MAX_HANDLE_COUNT">ST_MAX_HANDLE_COUNT</a></li>
+<li><a href="000111.html" title="ST_USE_HANDLE">ST_USE_HANDLE</a></li>
+</ul></li>
+<li><a href="000112.html" title="Constants">Constants</a><ul>
+<li><a href="000113.html" title="NULL_HANDLE">NULL_HANDLE</a></li>
+</ul></li>
+<li><a href="000114.html" title="Functions">Functions</a><ul>
+<li><a href="000115.html" title="stHandleAlloc">stHandleAlloc</a></li>
+<li><a href="000116.html" title="stHandleCheck">stHandleCheck</a></li>
+<li><a href="000117.html" title="stHandleRelease">stHandleRelease</a></li>
+<li><a href="000118.html" title="stHandleInfo">stHandleInfo</a></li>
+<li><a href="000119.html" title="stHandleInit">stHandleInit</a></li>
+</ul></li>
+<li><a href="000120.html" title="Types">Types</a><ul>
+<li><a href="000121.html" title="HANDLE">HANDLE</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000122.html" title="Memory management">Memory management</a><ul>
+<li><a href="000123.html" title="Examples">Examples</a><ul>
+<li><a href="000124.html" title="Memory pool initialization">Memory pool initialization</a></li>
+<li><a href="000125.html" title="Dynamic memory allocation">Dynamic memory allocation</a></li>
+<li><a href="000126.html" title="Using of many memories">Using of many memories</a></li>
+<li><a href="000127.html" title="Defining reserved memory areas">Defining reserved memory areas</a></li>
+</ul></li>
+<li><a href="000128.html" title="Configuration">Configuration</a><ul>
+<li><a href="000129.html" title="ST_GET_MEMORY_INFO_FUNC">ST_GET_MEMORY_INFO_FUNC</a></li>
+<li><a href="000130.html" title="ST_MEMORY_EXPAND_FUNC">ST_MEMORY_EXPAND_FUNC</a></li>
+<li><a href="000131.html" title="ST_USE_MEMORY">ST_USE_MEMORY</a></li>
+<li><a href="000132.html" title="ST_USE_SAFE_MEMORY_FREE">ST_USE_SAFE_MEMORY_FREE</a></li>
+</ul></li>
+<li><a href="000133.html" title="Functions">Functions</a><ul>
+<li><a href="000134.html" title="stMemoryAlloc">stMemoryAlloc</a></li>
+<li><a href="000135.html" title="stMemoryExpand">stMemoryExpand</a></li>
+<li><a href="000136.html" title="stMemoryFree">stMemoryFree</a></li>
+<li><a href="000137.html" title="stMemoryGetInfo">stMemoryGetInfo</a></li>
+<li><a href="000138.html" title="stMemoryInit">stMemoryInit</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000139.html" title="Fixed size memory management">Fixed size memory management</a><ul>
+<li><a href="000140.html" title="Examples">Examples</a><ul>
+<li><a href="000141.html" title="Fixed size memory pool initialization">Fixed size memory pool initialization</a></li>
+<li><a href="000142.html" title="Memory allocation">Memory allocation</a></li>
+</ul></li>
+<li><a href="000143.html" title="Configuration">Configuration</a><ul>
+<li><a href="000144.html" title="ST_USE_FIXMEM">ST_USE_FIXMEM</a></li>
+</ul></li>
+<li><a href="000145.html" title="Functions">Functions</a><ul>
+<li><a href="000146.html" title="stFixedMemAlloc">stFixedMemAlloc</a></li>
+<li><a href="000147.html" title="stFixedMemFree">stFixedMemFree</a></li>
+<li><a href="000148.html" title="stFixedMemInit">stFixedMemInit</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000149.html" title="Alternative C library">Alternative C library</a><ul>
+<li><a href="000150.html" title="Examples">Examples</a><ul>
+<li><a href="000151.html" title="Dynamic memory allocation">Dynamic memory allocation</a></li>
+<li><a href="000152.html" title="Obtaining memory information">Obtaining memory information</a></li>
+<li><a href="000153.html" title="Memory movement">Memory movement</a></li>
+<li><a href="000154.html" title="Using string functions">Using string functions</a></li>
+</ul></li>
+<li><a href="000155.html" title="Configuration">Configuration</a><ul>
+<li><a href="000156.html" title="ST_MALLOC_BASE_ADDRESS">ST_MALLOC_BASE_ADDRESS</a></li>
+<li><a href="000157.html" title="ST_MALLOC_BUFFERED">ST_MALLOC_BUFFERED</a></li>
+<li><a href="000158.html" title="ST_MALLOC_SIZE">ST_MALLOC_SIZE</a></li>
+<li><a href="000159.html" title="ST_USE_MALLOC_CLIB">ST_USE_MALLOC_CLIB</a></li>
+<li><a href="000160.html" title="ST_USE_MEMORY_CLIB">ST_USE_MEMORY_CLIB</a></li>
+<li><a href="000161.html" title="ST_USE_STRING_CLIB">ST_USE_STRING_CLIB</a></li>
+</ul></li>
+<li><a href="000162.html" title="Functions">Functions</a><ul>
+<li><a href="000163.html" title="stMemAlloc">stMemAlloc</a></li>
+<li><a href="000164.html" title="stMemCmp">stMemCmp</a></li>
+<li><a href="000165.html" title="stMemCpy">stMemCpy</a></li>
+<li><a href="000166.html" title="stMemFree">stMemFree</a></li>
+<li><a href="000167.html" title="stMemSet">stMemSet</a></li>
+<li><a href="000168.html" title="stStrCat">stStrCat</a></li>
+<li><a href="000169.html" title="stStrCmp">stStrCmp</a></li>
+<li><a href="000170.html" title="stStrCpy">stStrCpy</a></li>
+<li><a href="000171.html" title="stStrICmp">stStrICmp</a></li>
+<li><a href="000172.html" title="stStrLen">stStrLen</a></li>
+<li><a href="000173.html" title="stStrNCat">stStrNCat</a></li>
+<li><a href="000174.html" title="stStrNCmp">stStrNCmp</a></li>
+<li><a href="000175.html" title="stStrNCpy">stStrNCpy</a></li>
+<li><a href="000176.html" title="stStrNICmp">stStrNICmp</a></li>
+<li><a href="000177.html" title="stStrUpr">stStrUpr</a></li>
+</ul></li>
+<li><a href="000178.html" title="Variables">Variables</a><ul>
+<li><a href="000179.html" title="stMemoryPool">stMemoryPool</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000180.html" title="Examples">Examples</a><ul>
+<li><a href="000181.html" title="Initializing standard library">Initializing standard library</a></li>
+</ul></li>
+<li><a href="000182.html" title="Functions">Functions</a><ul>
+<li><a href="000183.html" title="stInit">stInit</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000184.html" title="Operating System Kernel">Operating System Kernel</a><ul>
+<li><a href="000185.html" title="Real-time performance">Real-time performance</a></li>
+<li><a href="000186.html" title="Scheduling">Scheduling</a></li>
+<li><a href="000187.html" title="Synchronization">Synchronization</a></li>
+<li><a href="000188.html" title="Interprocess communication">Interprocess communication</a></li>
+<li><a href="000189.html" title="Interrupts">Interrupts</a></li>
+<li><a href="000190.html" title="System objects management">System objects management</a></li>
+<li><a href="000191.html" title="System objects">System objects</a><ul>
+<li><a href="000192.html" title="Tasks">Tasks</a><ul>
+<li><a href="000193.html" title="Examples">Examples</a><ul>
+<li><a href="000194.html" title="Creating a task">Creating a task</a></li>
+<li><a href="000195.html" title="Task suspending and resuming">Task suspending and resuming</a></li>
+<li><a href="000196.html" title="Using priority and time quanta">Using priority and time quanta</a></li>
+<li><a href="000197.html" title="Task statistics">Task statistics</a></li>
+<li><a href="000198.html" title="Obtaining task exit code">Obtaining task exit code</a></li>
+</ul></li>
+<li><a href="000199.html" title="Configuration">Configuration</a><ul>
+<li><a href="000200.html" title="OS_DEFAULT_TASK_STACK_SIZE">OS_DEFAULT_TASK_STACK_SIZE</a></li>
+<li><a href="000201.html" title="OS_GET_TASK_HANDLE_FUNC">OS_GET_TASK_HANDLE_FUNC</a></li>
+<li><a href="000202.html" title="OS_GET_TASK_STAT_FUNC">OS_GET_TASK_STAT_FUNC</a></li>
+<li><a href="000203.html" title="OS_SUSP_RES_TASK_FUNC">OS_SUSP_RES_TASK_FUNC</a></li>
+<li><a href="000204.html" title="OS_TASK_EXIT_CODE_FUNC">OS_TASK_EXIT_CODE_FUNC</a></li>
+<li><a href="000205.html" title="OS_TASK_PRIORITY_FUNC">OS_TASK_PRIORITY_FUNC</a></li>
+<li><a href="000206.html" title="OS_TASK_QUANTUM_FUNC">OS_TASK_QUANTUM_FUNC</a></li>
+<li><a href="000207.html" title="OS_TERMINATE_TASK_FUNC">OS_TERMINATE_TASK_FUNC</a></li>
+</ul></li>
+<li><a href="000208.html" title="Functions">Functions</a><ul>
+<li><a href="000209.html" title="osCreateTask">osCreateTask</a></li>
+<li><a href="000210.html" title="osExitTask">osExitTask</a></li>
+<li><a href="000211.html" title="osGetTaskExitCode">osGetTaskExitCode</a></li>
+<li><a href="000212.html" title="osGetTaskHandle">osGetTaskHandle</a></li>
+<li><a href="000213.html" title="osGetTaskPriority">osGetTaskPriority</a></li>
+<li><a href="000214.html" title="osGetTaskQuantum">osGetTaskQuantum</a></li>
+<li><a href="000215.html" title="osGetTaskStat">osGetTaskStat</a></li>
+<li><a href="000216.html" title="osResumeTask">osResumeTask</a></li>
+<li><a href="000217.html" title="osSetTaskPriority">osSetTaskPriority</a></li>
+<li><a href="000218.html" title="osSetTaskQuantum">osSetTaskQuantum</a></li>
+<li><a href="000219.html" title="osSuspendTask">osSuspendTask</a></li>
+<li><a href="000220.html" title="osTerminateTask">osTerminateTask</a></li>
+</ul></li>
+<li><a href="000221.html" title="Types">Types</a><ul>
+<li><a href="000222.html" title="TTaskProc">TTaskProc</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000223.html" title="Mutexes">Mutexes</a><ul>
+<li><a href="000224.html" title="Examples">Examples</a><ul>
+<li><a href="000225.html" title="Controlling critical section">Controlling critical section</a></li>
+<li><a href="000226.html" title="Avoiding priority inversion">Avoiding priority inversion</a></li>
+<li><a href="000227.html" title="Deadlock detection">Deadlock detection</a></li>
+</ul></li>
+<li><a href="000228.html" title="Configuration">Configuration</a><ul>
+<li><a href="000229.html" title="OS_OPEN_MUTEX_FUNC">OS_OPEN_MUTEX_FUNC</a></li>
+<li><a href="000230.html" title="OS_USE_MUTEX">OS_USE_MUTEX</a></li>
+</ul></li>
+<li><a href="000231.html" title="Functions">Functions</a><ul>
+<li><a href="000232.html" title="osCreateMutex">osCreateMutex</a></li>
+<li><a href="000233.html" title="osOpenMutex">osOpenMutex</a></li>
+<li><a href="000234.html" title="osReleaseMutex">osReleaseMutex</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000235.html" title="Semaphores">Semaphores</a><ul>
+<li><a href="000236.html" title="Examples">Examples</a><ul>
+<li><a href="000237.html" title="Using a semaphore">Using a semaphore</a></li>
+</ul></li>
+<li><a href="000238.html" title="Configuration">Configuration</a><ul>
+<li><a href="000239.html" title="OS_OPEN_SEMAPHORE_FUNC">OS_OPEN_SEMAPHORE_FUNC</a></li>
+<li><a href="000240.html" title="OS_USE_SEMAPHORE">OS_USE_SEMAPHORE</a></li>
+</ul></li>
+<li><a href="000241.html" title="Functions">Functions</a><ul>
+<li><a href="000242.html" title="osCreateSemaphore">osCreateSemaphore</a></li>
+<li><a href="000243.html" title="osOpenSemaphore">osOpenSemaphore</a></li>
+<li><a href="000244.html" title="osReleaseSemaphore">osReleaseSemaphore</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000245.html" title="Counting semaphores">Counting semaphores</a><ul>
+<li><a href="000246.html" title="Examples">Examples</a><ul>
+<li><a href="000247.html" title="Using a counting semaphore">Using a counting semaphore</a></li>
+</ul></li>
+<li><a href="000248.html" title="Configuration">Configuration</a><ul>
+<li><a href="000249.html" title="OS_OPEN_CNT_SEM_FUNC">OS_OPEN_CNT_SEM_FUNC</a></li>
+<li><a href="000250.html" title="OS_USE_CNT_SEM">OS_USE_CNT_SEM</a></li>
+</ul></li>
+<li><a href="000251.html" title="Functions">Functions</a><ul>
+<li><a href="000252.html" title="osCreateCountSem">osCreateCountSem</a></li>
+<li><a href="000253.html" title="osOpenCountSem">osOpenCountSem</a></li>
+<li><a href="000254.html" title="osReleaseCountSem">osReleaseCountSem</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000255.html" title="Events">Events</a><ul>
+<li><a href="000256.html" title="Examples">Examples</a><ul>
+<li><a href="000257.html" title="Using an auto-reset event">Using an auto-reset event</a></li>
+<li><a href="000258.html" title="Using a manual-reset event">Using a manual-reset event</a></li>
+</ul></li>
+<li><a href="000259.html" title="Configuration">Configuration</a><ul>
+<li><a href="000260.html" title="OS_OPEN_EVENT_FUNC">OS_OPEN_EVENT_FUNC</a></li>
+<li><a href="000261.html" title="OS_USE_EVENT">OS_USE_EVENT</a></li>
+</ul></li>
+<li><a href="000262.html" title="Functions">Functions</a><ul>
+<li><a href="000263.html" title="osCreateEvent">osCreateEvent</a></li>
+<li><a href="000264.html" title="osOpenEvent">osOpenEvent</a></li>
+<li><a href="000265.html" title="osResetEvent">osResetEvent</a></li>
+<li><a href="000266.html" title="osSetEvent">osSetEvent</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000267.html" title="Timers">Timers</a><ul>
+<li><a href="000268.html" title="Examples">Examples</a><ul>
+<li><a href="000269.html" title="Using an auto-reset timer">Using an auto-reset timer</a></li>
+<li><a href="000270.html" title="Using a manual-reset timer">Using a manual-reset timer</a></li>
+</ul></li>
+<li><a href="000271.html" title="Configuration">Configuration</a><ul>
+<li><a href="000272.html" title="OS_OPEN_TIMER_FUNC">OS_OPEN_TIMER_FUNC</a></li>
+<li><a href="000273.html" title="OS_USE_TIMER">OS_USE_TIMER</a></li>
+</ul></li>
+<li><a href="000274.html" title="Functions">Functions</a><ul>
+<li><a href="000275.html" title="osCancelTimer">osCancelTimer</a></li>
+<li><a href="000276.html" title="osCreateTimer">osCreateTimer</a></li>
+<li><a href="000277.html" title="osOpenTimer">osOpenTimer</a></li>
+<li><a href="000278.html" title="osResetTimer">osResetTimer</a></li>
+<li><a href="000279.html" title="osSetTimer">osSetTimer</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000280.html" title="Shared memories">Shared memories</a><ul>
+<li><a href="000281.html" title="Examples">Examples</a><ul>
+<li><a href="000282.html" title="Using a shared memory">Using a shared memory</a></li>
+</ul></li>
+<li><a href="000283.html" title="Configuration">Configuration</a><ul>
+<li><a href="000284.html" title="OS_GET_SH_MEM_ADDRESS_FUNC">OS_GET_SH_MEM_ADDRESS_FUNC</a></li>
+<li><a href="000285.html" title="OS_OPEN_SH_MEM_FUNC">OS_OPEN_SH_MEM_FUNC</a></li>
+<li><a href="000287.html" title="OS_SH_MEM_PROTECT_MUTEX">OS_SH_MEM_PROTECT_MUTEX</a></li>
+<li><a href="000288.html" title="OS_USE_SHARED_MEM">OS_USE_SHARED_MEM</a></li>
+</ul></li>
+<li><a href="000289.html" title="Functions">Functions</a><ul>
+<li><a href="000290.html" title="osCreateSharedMemory">osCreateSharedMemory</a></li>
+<li><a href="000291.html" title="osGetSharedMemoryAddress">osGetSharedMemoryAddress</a></li>
+<li><a href="000292.html" title="osOpenSharedMemory">osOpenSharedMemory</a></li>
+<li><a href="000293.html" title="osReleaseSharedMemory">osReleaseSharedMemory</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000294.html" title="Queue of pointers">Queue of pointers</a><ul>
+<li><a href="000295.html" title="Examples">Examples</a><ul>
+<li><a href="000296.html" title="Using a queue of pointers">Using a queue of pointers</a></li>
+</ul></li>
+<li><a href="000297.html" title="Configuration">Configuration</a><ul>
+<li><a href="000298.html" title="OS_OPEN_PTR_QUEUE_FUNC">OS_OPEN_PTR_QUEUE_FUNC</a></li>
+<li><a href="000299.html" title="OS_PTR_QUEUE_CLEAR_FUNC">OS_PTR_QUEUE_CLEAR_FUNC</a></li>
+<li><a href="000300.html" title="OS_PTR_QUEUE_PEEK_FUNC">OS_PTR_QUEUE_PEEK_FUNC</a></li>
+<li><a href="000301.html" title="OS_USE_PTR_QUEUE">OS_USE_PTR_QUEUE</a></li>
+</ul></li>
+<li><a href="000302.html" title="Functions">Functions</a><ul>
+<li><a href="000303.html" title="osClearPtrQueue">osClearPtrQueue</a></li>
+<li><a href="000304.html" title="osCreatePtrQueue">osCreatePtrQueue</a></li>
+<li><a href="000305.html" title="osOpenPtrQueue">osOpenPtrQueue</a></li>
+<li><a href="000306.html" title="osPtrQueuePeek">osPtrQueuePeek</a></li>
+<li><a href="000307.html" title="osPtrQueuePend">osPtrQueuePend</a></li>
+<li><a href="000308.html" title="osPtrQueuePost">osPtrQueuePost</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000309.html" title="Streams">Streams</a><ul>
+<li><a href="000310.html" title="Examples">Examples</a><ul>
+<li><a href="000311.html" title="Using a stream">Using a stream</a></li>
+</ul></li>
+<li><a href="000312.html" title="Configuration">Configuration</a><ul>
+<li><a href="000313.html" title="OS_OPEN_STREAM_FUNC">OS_OPEN_STREAM_FUNC</a></li>
+<li><a href="000314.html" title="OS_STREAM_ALLOW_DIRECT_RW">OS_STREAM_ALLOW_DIRECT_RW</a></li>
+<li><a href="000315.html" title="OS_STREAM_ALLOW_WAIT_IF_EMPTY">OS_STREAM_ALLOW_WAIT_IF_EMPTY</a></li>
+<li><a href="000316.html" title="OS_STREAM_ALLOW_WAIT_IF_FULL">OS_STREAM_ALLOW_WAIT_IF_FULL</a></li>
+<li><a href="000317.html" title="OS_STREAM_PROTECT_EVENT">OS_STREAM_PROTECT_EVENT</a></li>
+<li><a href="000318.html" title="OS_STREAM_PROTECT_MUTEX">OS_STREAM_PROTECT_MUTEX</a></li>
+<li><a href="000319.html" title="OS_USE_STREAM">OS_USE_STREAM</a></li>
+</ul></li>
+<li><a href="000320.html" title="Functions">Functions</a><ul>
+<li><a href="000321.html" title="osCreateStream">osCreateStream</a></li>
+<li><a href="000322.html" title="osOpenStream">osOpenStream</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000323.html" title="Queues">Queues</a><ul>
+<li><a href="000324.html" title="Examples">Examples</a><ul>
+<li><a href="000325.html" title="Using a queue">Using a queue</a></li>
+</ul></li>
+<li><a href="000326.html" title="Configuration">Configuration</a><ul>
+<li><a href="000327.html" title="OS_OPEN_QUEUE_FUNC">OS_OPEN_QUEUE_FUNC</a></li>
+<li><a href="000328.html" title="OS_QUEUE_ALLOW_DIRECT_RW">OS_QUEUE_ALLOW_DIRECT_RW</a></li>
+<li><a href="000329.html" title="OS_QUEUE_ALLOW_WAIT_IF_EMPTY">OS_QUEUE_ALLOW_WAIT_IF_EMPTY</a></li>
+<li><a href="000330.html" title="OS_QUEUE_ALLOW_WAIT_IF_FULL">OS_QUEUE_ALLOW_WAIT_IF_FULL</a></li>
+<li><a href="000331.html" title="OS_QUEUE_CLEAR_FUNC">OS_QUEUE_CLEAR_FUNC</a></li>
+<li><a href="000332.html" title="OS_QUEUE_PEEK_FUNC">OS_QUEUE_PEEK_FUNC</a></li>
+<li><a href="000333.html" title="OS_QUEUE_POST_PEND_FUNC">OS_QUEUE_POST_PEND_FUNC</a></li>
+<li><a href="000334.html" title="OS_QUEUE_PROTECT_EVENT">OS_QUEUE_PROTECT_EVENT</a></li>
+<li><a href="000335.html" title="OS_QUEUE_PROTECT_MUTEX">OS_QUEUE_PROTECT_MUTEX</a></li>
+<li><a href="000336.html" title="OS_USE_QUEUE">OS_USE_QUEUE</a></li>
+</ul></li>
+<li><a href="000337.html" title="Functions">Functions</a><ul>
+<li><a href="000338.html" title="osClearQueue">osClearQueue</a></li>
+<li><a href="000339.html" title="osCreateQueue">osCreateQueue</a></li>
+<li><a href="000340.html" title="osOpenQueue">osOpenQueue</a></li>
+<li><a href="000341.html" title="osQueuePeek">osQueuePeek</a></li>
+<li><a href="000342.html" title="osQueuePend">osQueuePend</a></li>
+<li><a href="000343.html" title="osQueuePost">osQueuePost</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000344.html" title="Mailboxes">Mailboxes</a><ul>
+<li><a href="000345.html" title="Examples">Examples</a><ul>
+<li><a href="000346.html" title="Using a mailbox">Using a mailbox</a></li>
+<li><a href="000443.html" title="Simultaneous access synchronization">Simultaneous access synchronization</a></li>
+</ul></li>
+<li><a href="000347.html" title="Configuration">Configuration</a><ul>
+<li><a href="000348.html" title="OS_MBOX_ALLOW_DIRECT_RW">OS_MBOX_ALLOW_DIRECT_RW</a></li>
+<li><a href="000349.html" title="OS_MBOX_ALLOW_WAIT_IF_EMPTY">OS_MBOX_ALLOW_WAIT_IF_EMPTY</a></li>
+<li><a href="000350.html" title="OS_MBOX_CLEAR_FUNC">OS_MBOX_CLEAR_FUNC</a></li>
+<li><a href="000351.html" title="OS_MBOX_GET_INFO_FUNC">OS_MBOX_GET_INFO_FUNC</a></li>
+<li><a href="000352.html" title="OS_MBOX_PEEK_FUNC">OS_MBOX_PEEK_FUNC</a></li>
+<li><a href="000353.html" title="OS_MBOX_POST_PEND_FUNC">OS_MBOX_POST_PEND_FUNC</a></li>
+<li><a href="000354.html" title="OS_MBOX_PROTECT_EVENT">OS_MBOX_PROTECT_EVENT</a></li>
+<li><a href="000355.html" title="OS_MBOX_PROTECT_MUTEX">OS_MBOX_PROTECT_MUTEX</a></li>
+<li><a href="000356.html" title="OS_OPEN_MBOX_FUNC">OS_OPEN_MBOX_FUNC</a></li>
+<li><a href="000357.html" title="OS_USE_MAILBOX">OS_USE_MAILBOX</a></li>
+</ul></li>
+<li><a href="000358.html" title="Functions">Functions</a><ul>
+<li><a href="000359.html" title="osClearMailbox">osClearMailbox</a></li>
+<li><a href="000360.html" title="osCreateMailbox">osCreateMailbox</a></li>
+<li><a href="000361.html" title="osGetMailboxInfo">osGetMailboxInfo</a></li>
+<li><a href="000362.html" title="osMailboxPeek">osMailboxPeek</a></li>
+<li><a href="000363.html" title="osMailboxPend">osMailboxPend</a></li>
+<li><a href="000364.html" title="osMailboxPost">osMailboxPost</a></li>
+<li><a href="000365.html" title="osOpenMailbox">osOpenMailbox</a></li>
+</ul></li>
+</ul></li>
+<li><a href="000366.html" title="Flags">Flags</a><ul>
+<li><a href="000367.html" title="Examples">Examples</a><ul>
+<li><a href="000368.html" title="Using a flags">Using a flags</a></li>
+</ul></li>
+<li><a href="000369.html" title="Configuration">Configuration</a><ul>
+<li><a href="000370.html" title="OS_OPEN_FLAGS_FUNC">OS_OPEN_FLAGS_FUNC</a></li>
+<li><a href="000371.html" title="OS_USE_FLAGS">OS_USE_FLAGS</a></li>
+</ul></li>
+<li><a href="000372.html" title="Functions">Functions</a><ul>
+<li><a href="000373.html" title="osCreateFlags">osCreateFlags</a></li>
+<li><a href="000374.html" title="osGetFlags">osGetFlags</a></li>
+<li><a href="000375.html" title="osOpenFlags">osOpenFlags</a></li>
+<li><a href="000376.html" title="osResetFlags">osResetFlags</a></li>
+<li><a href="000377.html" title="osSetFlags">osSetFlags</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="000378.html" title="Using the operating system">Using the operating system</a><ul>
+<li><a href="000379.html" title="Starting the operating system">Starting the operating system</a></li>
+<li><a href="000380.html" title="Error codes management">Error codes management</a></li>
+<li><a href="000381.html" title="System memory management">System memory management</a></li>
+<li><a href="000382.html" title="System configuration">System configuration</a></li>
+</ul></li>
+<li><a href="000383.html" title="Examples">Examples</a><ul>
+<li><a href="000384.html" title="Hello world">Hello world</a></li>
+<li><a href="000385.html" title="Resuming task from interrupt">Resuming task from interrupt</a></li>
+<li><a href="000386.html" title="Using event from interrupt">Using event from interrupt</a></li>
+<li><a href="000387.html" title="CPU usage">CPU usage</a></li>
+<li><a href="000444.html" title="Defining printf function for multitasking system">Defining printf function for multitasking system</a></li>
+</ul></li>
+<li><a href="000388.html" title="Constants">Constants</a><ul>
+<li><a href="000389.html" title="OS_IGNORE">OS_IGNORE</a></li>
+<li><a href="000390.html" title="OS_INFINITE">OS_INFINITE</a></li>
+<li><a href="000391.html" title="OS_IPC_DIRECT_READ_WRITE">OS_IPC_DIRECT_READ_WRITE</a></li>
+<li><a href="000392.html" title="OS_IPC_PROTECT_EVENT">OS_IPC_PROTECT_EVENT</a></li>
+<li><a href="000393.html" title="OS_IPC_PROTECT_INT_CTRL">OS_IPC_PROTECT_INT_CTRL</a></li>
+<li><a href="000394.html" title="OS_IPC_PROTECT_MUTEX">OS_IPC_PROTECT_MUTEX</a></li>
+<li><a href="000395.html" title="OS_IPC_WAIT_IF_EMPTY">OS_IPC_WAIT_IF_EMPTY</a></li>
+<li><a href="000396.html" title="OS_IPC_WAIT_IF_FULL">OS_IPC_WAIT_IF_FULL</a></li>
+</ul></li>
+<li><a href="000397.html" title="Configuration">Configuration</a><ul>
+<li><a href="000398.html" title="OS_ALLOW_OBJECT_DELETION">OS_ALLOW_OBJECT_DELETION</a></li>
+<li><a href="000399.html" title="OS_FIX_POOL0_ITEM_SIZE">OS_FIX_POOL0_ITEM_SIZE</a></li>
+<li><a href="000400.html" title="OS_FIX_POOL0_SIZE">OS_FIX_POOL0_SIZE</a></li>
+<li><a href="000401.html" title="OS_FIX_POOL1_ITEM_SIZE">OS_FIX_POOL1_ITEM_SIZE</a></li>
+<li><a href="000402.html" title="OS_FIX_POOL1_SIZE">OS_FIX_POOL1_SIZE</a></li>
+<li><a href="000403.html" title="OS_FIX_POOL2_ITEM_SIZE">OS_FIX_POOL2_ITEM_SIZE</a></li>
+<li><a href="000404.html" title="OS_FIX_POOL2_SIZE">OS_FIX_POOL2_SIZE</a></li>
+<li><a href="000405.html" title="OS_FIX_POOL3_ITEM_SIZE">OS_FIX_POOL3_ITEM_SIZE</a></li>
+<li><a href="000406.html" title="OS_FIX_POOL3_SIZE">OS_FIX_POOL3_SIZE</a></li>
+<li><a href="000407.html" title="OS_DEINIT_FUNC">OS_DEINIT_FUNC</a></li>
+<li><a href="000408.html" title="OS_GET_SYSTEM_STAT_FUNC">OS_GET_SYSTEM_STAT_FUNC</a></li>
+<li><a href="000409.html" title="OS_IDLE_STACK_SIZE">OS_IDLE_STACK_SIZE</a></li>
+<li><a href="000410.html" title="OS_INTERNAL_MEMORY_SIZE">OS_INTERNAL_MEMORY_SIZE</a></li>
+<li><a href="000411.html" title="OS_LOWEST_USED_PRIORITY">OS_LOWEST_USED_PRIORITY</a></li>
+<li><a href="000412.html" title="OS_MAX_WAIT_FOR_OBJECTS">OS_MAX_WAIT_FOR_OBJECTS</a></li>
+<li><a href="000413.html" title="OS_OPEN_BY_HANDLE_FUNC">OS_OPEN_BY_HANDLE_FUNC</a></li>
+<li><a href="000414.html" title="OS_READ_WRITE_FUNC">OS_READ_WRITE_FUNC</a></li>
+<li><a href="000415.html" title="OS_RESUME_IMMEDIATELY">OS_RESUME_IMMEDIATELY</a></li>
+<li><a href="000416.html" title="OS_STACK_SIZE">OS_STACK_SIZE</a></li>
+<li><a href="000417.html" title="OS_STAT_SAMPLE_RATE">OS_STAT_SAMPLE_RATE</a></li>
+<li><a href="000418.html" title="OS_STOP_FUNC">OS_STOP_FUNC</a></li>
+<li><a href="000419.html" title="OS_SYS_OBJECT_MAX_NAME_LEN">OS_SYS_OBJECT_MAX_NAME_LEN</a></li>
+<li><a href="000420.html" title="OS_USE_FIXMEM_POOLS">OS_USE_FIXMEM_POOLS</a></li>
+<li><a href="000421.html" title="OS_USE_WAITING_WITH_TIME_OUT">OS_USE_WAITING_WITH_TIME_OUT</a></li>
+<li><a href="000442.html" title="OS_USED">OS_USED</a></li>
+</ul></li>
+<li><a href="000422.html" title="Functions">Functions</a><ul>
+<li><a href="000423.html" title="osCloseHandle">osCloseHandle</a></li>
+<li><a href="000424.html" title="osDeinit">osDeinit</a></li>
+<li><a href="000425.html" title="osEnterISR">osEnterISR</a></li>
+<li><a href="000426.html" title="osGetLastError">osGetLastError</a></li>
+<li><a href="000427.html" title="osGetSystemStat">osGetSystemStat</a></li>
+<li><a href="000428.html" title="osInit">osInit</a></li>
+<li><a href="000429.html" title="osLeaveISR">osLeaveISR</a></li>
+<li><a href="000430.html" title="osOpenByHandle">osOpenByHandle</a></li>
+<li><a href="000431.html" title="osRead">osRead</a></li>
+<li><a href="000432.html" title="osSetLastError">osSetLastError</a></li>
+<li><a href="000433.html" title="osSleep">osSleep</a></li>
+<li><a href="000434.html" title="osStart">osStart</a></li>
+<li><a href="000435.html" title="osStop">osStop</a></li>
+<li><a href="000436.html" title="osWaitForObject">osWaitForObject</a></li>
+<li><a href="000437.html" title="osWaitForObjects">osWaitForObjects</a></li>
+<li><a href="000438.html" title="osWrite">osWrite</a></li>
+</ul></li>
+<li><a href="000439.html" title="Types">Types</a><ul>
+<li><a href="000440.html" title="SYSNAME">SYSNAME</a></li>
+<li><a href="000441.html" title="TIORequest">TIORequest</a></li>
+</ul></li>
+</ul></li>
+
+</ul>
+
+<script type="text/javascript">
+ddtreemenu.createTree("treemenu1", true)
+</script>
+
+</div>
+
+
+<div class="doc_breaker"></div>
+
+<!-- END OF PAGE CONTENT -->
+
+</div>
+</div>
+
+<div id="page_footer">
+<div id="page_footer_info">
+Copyright &copy; 2010 by SpaceShadow<br />
+All rights reserved!
+</div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Highlight current page
+    var currentUrl = window.location.pathname.split("/").pop();
+    if (!currentUrl) currentUrl = "index.html"; // Default catch
+    
+    var links = document.querySelectorAll(".treeview a");
+    var found = false;
+    
+    for (var i = 0; i < links.length; i++) {
+        // loose comparison to catch '000001.html' vs './000001.html'
+        if (links[i].getAttribute("href").indexOf(currentUrl) !== -1) {
+            links[i].style.fontWeight = "bold";
+            links[i].style.color = "black";
+            
+            // 2. Expand all parent ULs
+            var parent = links[i].parentElement;
+            while (parent) {
+                if (parent.tagName === "UL") {
+                    parent.style.display = "block";
+                    // Update the folder icon if it exists
+                    if (parent.parentNode.tagName === "LI") {
+                        parent.parentNode.className = "submenu"; // Ensure styling matches
+                    }
+                }
+                if (parent.id === "treemenu1") break;
+                parent = parent.parentElement;
+            }
+            found = true;
+            break;
+        }
+    }
+});
+</script>
+</body>
+</html>
